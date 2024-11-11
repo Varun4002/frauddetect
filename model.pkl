@@ -1,0 +1,14 @@
+import joblib
+from sklearn.ensemble import RandomForestClassifier
+import pandas as pd
+
+# Example: Training a simple model
+data = pd.read_csv('your_data.csv')  # Replace with your dataset
+X = data.drop('target', axis=1)  # Replace 'target' with your target column
+y = data['target']  # Replace 'target' with your target column
+
+model = RandomForestClassifier()
+model.fit(X, y)
+
+# Save the model
+joblib.dump(model, 'model.pkl')
